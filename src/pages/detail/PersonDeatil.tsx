@@ -65,8 +65,8 @@ const PersonDeatil = () => {
           <div>
             <h3 className="font-semibold text-lg">Also Known As</h3>
             <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
-              {person?.also_known_as.map((alias: string, idx: number) => (
-                <li key={idx}>{alias}</li>
+              {person?.also_known_as.map((alias: string, inx: number) => (
+                <li key={inx}>{alias}</li>
               ))}
             </ul>
           </div>
