@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <div>
       <Carousel  data={movies}/>
-      <MovieView loading={isLoading} data={data?.results?.slice(0, 10)} count={10}/>
+      <MovieView loading={isLoading} data={data?.results?.slice(0, 8)} count={10}/>
     </div>
   )
 }
