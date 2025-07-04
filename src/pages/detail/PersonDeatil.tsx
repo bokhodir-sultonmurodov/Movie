@@ -51,14 +51,7 @@ const PersonDeatil = () => {
 
             <p className="flex items-center gap-2">
               
-              <a
-                href={person?.homepage}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 dark:text-blue-400 underline"
-              >
-                {person?.homepage}
-              </a>
+             
             </p>
           </div>
 
