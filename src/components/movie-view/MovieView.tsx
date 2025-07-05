@@ -24,11 +24,7 @@ const Skeleton: FC<SkeletonProps> = ({ count }) => {
 
             <div className="h-6 rounded bg-gray-300 dark:bg-gray-600 w-6/12"></div>
 
-            <div className="flex justify-between items-center">
-              <div className="h-6 rounded bg-gray-300 dark:bg-gray-600 w-24"></div>
-
-              <div className="h-6 rounded bg-gray-300 dark:bg-gray-600 w-16"></div>
-            </div>
+            
           </div>
         ))}
     </>

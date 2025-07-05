@@ -57,11 +57,11 @@ const Header = () => {
              
               className="cursor-pointer  p-2 rounded-lg flex items-center justify-center"
             >
-              {darkMode ? (
+              {darkMode ? 
                 <FiSun className="text-yellow-400 w-6 h-6" />
-              ) : (
+              : 
                 <FiMoon className="text-gray-900 w-6 h-6" />
-              )}
+              }
             </button>
           </li>
         </ul>

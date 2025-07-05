@@ -5,13 +5,14 @@ import { useMovie } from "@/api/hooks/useMovie";
 import next from "@/assets/Vector.png"
 import prev from "@/assets/Vector (1).png"
 import { useNavigate } from "react-router-dom";
+import CarouselSkeleton from "./CarouselSkeleton";
 interface CarouselProps {
   data: undefined | IMovie[];
 }
 
 const Carousel: FC<CarouselProps> = () => {
   const { getMovies } = useMovie();
-  const { data } = getMovies({ page: 1, without_genres: "18,36,27,10749" });
+  const { data,isLoading } = getMovies({ page: 1, without_genres: "18,36,27,10749" });
 
   const movies: IMovie[] = data?.results?.slice(0, 5) || [];
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -24,7 +25,10 @@ const Carousel: FC<CarouselProps> = () => {
     setCurrentIndex((prev) => (prev + 1) % movies.length);
   };
   const navigate = useNavigate()
+  if (isLoading) return <CarouselSkeleton count={5} />;
+
   return (
+   
     <div className="w-full container mx-auto space-y-4 mb-6 relative">
 
       <div className="relative w-full h-[350px] rounded overflow-hidden ">

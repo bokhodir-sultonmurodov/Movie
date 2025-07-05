@@ -4,11 +4,14 @@ import {   useParams } from "react-router-dom"
 import {FaMapMarkerAlt} from "react-icons/fa";
 import { useEffect } from "react";
 import MovieView from "@/components/movie-view/MovieView";
+import PersonSkeleton from "./PersonSkeleton";
 const PersonDeatil = () => {
     const {id} = useParams()
    const {getPerson,getPersonFilms} = usePerson()
-  const { data:person } = getPerson(id || "");
+  const { data:person,isLoading } = getPerson(id || "");
   // const { data:serial } = getPersonSerials(id || "");
+  console.log(person);
+  
   const { data:film } = getPersonFilms(id || "",);
   // console.log(serial);
   console.log("Film Cast Data:", film?.cast);
@@ -16,6 +19,7 @@ const PersonDeatil = () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }, [id]);
     // const navigate = useNavigate()
+    if(isLoading) return <PersonSkeleton/>
   return (
     <>
     
@@ -58,7 +62,7 @@ const PersonDeatil = () => {
           <div>
             <h3 className="font-semibold text-lg">Also Known As</h3>
             <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
-              {person?.also_known_as.map((alias: string, inx: number) => (
+              {person?.also_known_as.slice(0,4).map((alias: string, inx: number) => (
                 <li key={inx}>{alias}</li>
               ))}
             </ul>
@@ -67,7 +71,7 @@ const PersonDeatil = () => {
           <div>
             <h2 className="text-2xl font-semibold mb-2">Biography</h2>
             <p className="text-base leading-relaxed text-gray-800 dark:text-gray-200 whitespace-pre-line">
-              {person?.biography.slice(0,500)}
+              {person?.biography.slice(0,250)}
             </p>
           </div>
         </div>
