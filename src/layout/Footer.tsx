@@ -1,6 +1,7 @@
 import logo from "../../public/vite.svg";
 import app from "@/assets/image 8.png";
 import store from "@/assets/image 7.png";
+import React from "react";
 
 const Footer = () => {
   return (
@@ -54,4 +55,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default React.memo(Footer);

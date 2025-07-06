@@ -2,7 +2,7 @@ import { usePerson } from "@/api/hooks/usePerson"
 import { IMAGE_URL } from "@/const"
 import {   useParams } from "react-router-dom"
 import {FaMapMarkerAlt} from "react-icons/fa";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import MovieView from "@/components/movie-view/MovieView";
 import PersonSkeleton from "./PersonSkeleton";
 const PersonDeatil = () => {
@@ -93,4 +93,4 @@ const PersonDeatil = () => {
   )
 }
 
-export default PersonDeatil
+export default React.memo(PersonDeatil)
