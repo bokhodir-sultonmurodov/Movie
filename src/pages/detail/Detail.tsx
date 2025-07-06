@@ -5,6 +5,8 @@ import { IMAGE_URL } from "@/const";
 import MovieView from "@/components/movie-view/MovieView";
 import { Image } from "antd";
 import { FaStar } from "react-icons/fa";
+import { Helmet } from "react-helmet"; 
+
 const DetailSkeleton = lazy(() => import("./DetailSkeleton"));
 
 // import ReviewList from "./Reviewlist";
@@ -30,7 +32,17 @@ const Detail = () => {
   <div className="text-center py-10 text-red-500 text-lg">Try later</div>;
 
   return (
+
     <div className="container max-w-6xl mx-auto p-6 bg-white dark:bg-[#121212] text-gray-900 dark:text-white space-y-12 mb-[40px]">
+      <Helmet>
+        <title>{product?.original_title} | Movie App</title>
+        <meta name="description" content={product?.overview?.slice(0, 150)} />
+        <meta name="keywords" content={
+          product?.genres?.map((g:any) => g.name).join(", ") + ", movie, film"
+        } />
+        <meta name="author" content="Movie App by Bokhodir" />
+      </Helmet>
+
       <div className="flex flex-col md:flex-row gap-8">
         <div className="w-full md:w-1/3 rounded-lg overflow-hidden  border-gray-200 dark:border-gray-700">
           <img
