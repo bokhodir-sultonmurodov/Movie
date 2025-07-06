@@ -15,66 +15,19 @@ const Header = () => {
 
   return (
     <>
-      {/* Desktop Header */}
-      <header className="hidden md:block p-6 container mx-auto bg-white dark:bg-[#000] backdrop-blur-sm">
-        <nav className="flex items-center justify-between">
-          <div>
-            <NavLink to="/">
-              <img src={logo} alt="Logo" className="w-24" loading="lazy" />
-            </NavLink>
-          </div>
+      {/* Always visible top header with logo and login/logout */}
+      <header className="p-4 container mx-auto flex justify-between items-center bg-white dark:bg-[#000] backdrop-blur-sm">
+        <NavLink to="/">
+          <img src={logo} alt="Logo" className="w-24" loading="lazy" />
+        </NavLink>
 
-          <ul className="flex gap-6 text-2xl font-medium items-center">
-            <li>
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  `flex flex-col items-center gap-1 ${
-                    isActive
-                      ? "text-[#C61F1F] dark:text-[#C61F1F]"
-                      : "text-gray-900 dark:text-[#A1A1A1]"
-                  }`
-                }
-              >
-                <FiHome />
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/movies"
-                className={({ isActive }) =>
-                  `flex flex-col items-center gap-1 ${
-                    isActive
-                      ? "text-[#C61F1F] dark:text-[#C61F1F]"
-                      : "text-gray-900 dark:text-[#A1A1A1]"
-                  }`
-                }
-              >
-                <FiFilm />
-              </NavLink>
-            </li>
-            <li>
-              <button
-                onClick={handleTheme}
-                className="cursor-pointer p-2 rounded-lg flex items-center justify-center"
-              >
-                {darkMode ? (
-                  <FiSun className="text-yellow-400 w-6 h-6" />
-                ) : (
-                  <FiMoon className="text-gray-900 w-6 h-6" />
-                )}
-              </button>
-            </li>
-          </ul>
-
-          <div className="flex items-center gap-2 text-2xl text-gray-900 dark:text-[#A1A1A1]">
-            <FiLogIn className="cursor-pointer hover:text-[#C61F1F] dark:hover:text-[#C61F1F] transition-colors duration-300" />
-          </div>
-        </nav>
+        <div className="text-2xl text-gray-900 dark:text-[#A1A1A1]">
+          <FiLogIn className="cursor-pointer hover:text-[#C61F1F] dark:hover:text-[#C61F1F] transition-colors duration-300" />
+        </div>
       </header>
 
-      {/* Mobile Bottom Navbar */}
-      <div className="fixed md:hidden bottom-0 left-0 right-0 z-50 bg-white dark:bg-black border-t border-gray-200 dark:border-gray-700 p-2">
+      {/* Bottom navigation only on small screens */}
+      <div className="fixed md:hidden bottom-0 left-0 right-0 z-50 bg-white dark:bg-black border-t border-gray-200 dark:border-gray-700 p-3">
         <ul className="flex justify-around items-center text-2xl">
           <li>
             <NavLink
@@ -109,7 +62,7 @@ const Header = () => {
               {darkMode ? (
                 <FiSun className="text-yellow-400 w-6 h-6" />
               ) : (
-                <FiMoon className="text-gray-900 w-6 h-6 dark:text-[#A1A1A1]" />
+                <FiMoon className="text-gray-900 dark:text-[#A1A1A1] w-6 h-6" />
               )}
             </button>
           </li>
