@@ -37,7 +37,6 @@ const Carousel: FC<CarouselProps> = () => {
             src={IMAGE_URL + (movies[currentIndex].backdrop_path || movies[currentIndex].poster_path)}
             alt={movies[currentIndex].title}
             className="w-full h-full object-cover"
-            loading="lazy"
           />
         )}
       </div>
@@ -53,7 +52,6 @@ const Carousel: FC<CarouselProps> = () => {
             src={prev}
             alt="Previous"
             className=" object-contain"
-            loading="lazy"
           />
         </button>
 
@@ -71,7 +69,6 @@ const Carousel: FC<CarouselProps> = () => {
                 className={`w-24 h-16 object-cover rounded cursor-pointer transition-transform duration-300 ${i === currentIndex ? "scale-105" : "scale-100"
                   }`}
                 draggable={false}
-            loading="lazy"
               />
             </div>
           ))}
@@ -101,7 +98,6 @@ const Carousel: FC<CarouselProps> = () => {
       src={next}
       alt="Next icon"
       className="w-4 h-4 object-contain"
-            loading="lazy"
 
     />
   </button>
