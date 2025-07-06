@@ -4,7 +4,7 @@ const Loading: FC = () => {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-100 dark:bg-gray-900">
       <div
-        className="animate-spin rounded-full border-8 border-t-8 border-gray-300 border-t-red-500 h-16 w-16"
+        className="animate-spin rounded-full border-4 border-t-4 border-gray-300 border-t-red-500 h-16 w-16"
         role="status"
         aria-label="loading"
       />

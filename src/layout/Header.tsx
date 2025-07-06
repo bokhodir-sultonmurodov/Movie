@@ -18,7 +18,7 @@ const Header = () => {
       <nav className="flex items-center justify-between">
         <div>
           <NavLink to="/">
-            <img src={logo} alt="Logo" className="w-24" />
+            <img src={logo} alt="Logo" className="w-24" loading="lazy" />
           </NavLink>
         </div>
 

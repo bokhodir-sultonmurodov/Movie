@@ -1,11 +1,12 @@
-import React, { useEffect } from "react";
+import React, { lazy, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useMovie } from "@/api/hooks/useMovie";
 import { IMAGE_URL } from "@/const";
 import MovieView from "@/components/movie-view/MovieView";
 import { Image } from "antd";
 import { FaStar } from "react-icons/fa";
-import DetailSkeleton from "./DetailSkeleton";
+const DetailSkeleton = lazy(() => import("./DetailSkeleton"));
+
 // import ReviewList from "./Reviewlist";
 
 const Detail = () => {
@@ -99,10 +100,10 @@ const Detail = () => {
           </div>
         </div>
       </div>
-      <div className="mt-12">
+      {/* <div className="mt-12">
         <h2 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-gray-100">Reviews</h2>
-        {/* <ReviewList reviews={reviews?.results } /> */}
-      </div>
+        <ReviewList reviews={reviews?.results } />
+      </div> */}
 
       <div>
         <h2 className="text-2xl font-semibold mb-4">Top Cast</h2>

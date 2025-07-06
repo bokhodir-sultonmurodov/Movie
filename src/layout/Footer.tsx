@@ -7,12 +7,12 @@ const Footer = () => {
     <footer className="bg-white text-gray-900 dark:bg-[#111111] dark:text-white py-10 ">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="flex flex-col items-start space-y-4">
-          <img src={logo} alt="Logo" className="mb-4" />
+          <img src={logo} alt="Logo" className="mb-4" loading="lazy" />
           <div>
-            <img src={app} alt="Google Play" className="w-36 mb-2" />
+            <img src={app} alt="Google Play" loading="lazy" className="w-36 mb-2" />
           </div>
           <div>
-            <img src={store} alt="App Store" className="w-36" />
+            <img src={store} alt="App Store" loading="lazy" className="w-36" />
           </div>
         </div>
 

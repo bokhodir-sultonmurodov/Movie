@@ -30,6 +30,7 @@ const PersonDeatil = () => {
             src={IMAGE_URL + person?.profile_path}
             alt={person?.name}
             className="w-full h-auto object-cover rounded-xl border border-gray-300 dark:border-gray-700"
+            loading="lazy"
           />
         </div>
 

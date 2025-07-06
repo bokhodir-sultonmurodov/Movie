@@ -6,8 +6,8 @@ import OnlineStatus from "./components/status/OnlineStatus";
 const App = () => {
   return (
     <div className="dark:bg-black dark:text-white bg-slate-100">
-      <Suspense fallback={<Loading/>}>
       <OnlineStatus/>
+      <Suspense fallback={<Loading/>}>
         <MainRouter />
       </Suspense>
     </div>

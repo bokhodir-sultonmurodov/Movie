@@ -56,6 +56,7 @@ const MovieView: FC<Props> = ({ data, loading, count }) => {
                 src={IMAGE_URL + movie.poster_path}
                 alt={movie.title}
                 className="rounded-[12px] w-full object-cover cursor-pointer"
+                
               />
             </div>
             <FiBookmark className="text-[24px] absolute top-3 right-3 cursor-pointer text-gray-300 hover:text-gray-400ey- transition" />
