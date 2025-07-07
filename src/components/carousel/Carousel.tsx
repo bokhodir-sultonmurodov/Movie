@@ -46,7 +46,7 @@ const Carousel: FC<CarouselProps> = () => {
         <button
           onClick={prevSlide}
           aria-label="Previous Slide"
-          className="w-12 h-12 rounded-full hover:bg-gray-800 transition flex items-center justify-center"
+          className="w-12 h-12 rounded-full hover:bg-gray-800 transition flex items-center justify-center cursor-pointer"
         >
           <img
             src={prev}
@@ -78,7 +78,7 @@ const Carousel: FC<CarouselProps> = () => {
         <button
           onClick={nextSlide}
           aria-label="Next Slide"
-          className="w-12 h-12 rounded-full hover:bg-gray-800 transition flex items-center justify-center"
+          className="w-12 h-12 rounded-full hover:bg-gray-800 transition flex items-center justify-center cursor-pointer"
         >
           <img
             src={next}
