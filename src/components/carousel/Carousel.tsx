@@ -33,7 +33,6 @@ const Carousel: FC<CarouselProps> = () => {
   return (
     <div className="w-full container mx-auto space-y-4 mb-6 relative">
 
-      {/* Главный большой слайд: высота адаптивная */}
       <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded overflow-hidden select-none">
         {movies[currentIndex] && (
           <img
@@ -45,10 +44,8 @@ const Carousel: FC<CarouselProps> = () => {
         )}
       </div>
 
-      {/* Управление: стрелки и превью */}
       <div className="flex items-center justify-center gap-3 mt-2 relative">
 
-        {/* Кнопка назад */}
         <button
           onClick={prevSlide}
           aria-label="Previous Slide"
@@ -61,7 +58,6 @@ const Carousel: FC<CarouselProps> = () => {
           />
         </button>
 
-        {/* Превью миниатюры - добавлен горизонтальный скролл на мобильных */}
         <div className="flex gap-3 px-1 overflow-x-auto scrollbar-hide select-none">
           {movies.map((movie: IMovie, i: number) => (
             <div
@@ -79,7 +75,6 @@ const Carousel: FC<CarouselProps> = () => {
           ))}
         </div>
 
-        {/* Кнопка вперед */}
         <button
           onClick={nextSlide}
           aria-label="Next Slide"
@@ -94,7 +89,6 @@ const Carousel: FC<CarouselProps> = () => {
 
       </div>
 
-      {/* Кнопка "View All" */}
       <div className="flex justify-end mb-4">
         <button
           onClick={() => navigate("/movies")}
