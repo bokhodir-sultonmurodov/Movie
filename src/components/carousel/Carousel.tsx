@@ -31,15 +31,17 @@ const Carousel: FC<CarouselProps> = () => {
    
     <div className="w-full container mx-auto space-y-4 mb-6 relative">
 
-      <div className="relative w-full h-[350px] rounded overflow-hidden ">
-        {movies[currentIndex] && (
-          <img
-            src={IMAGE_URL + (movies[currentIndex].backdrop_path || movies[currentIndex].poster_path)}
-            alt={movies[currentIndex].title}
-            className="w-full h-full object-cover"
-          />
-        )}
-      </div>
+    <div className="relative w-full h-[500px] rounded overflow-hidden">
+  {movies[currentIndex] && (
+    <img
+      src={IMAGE_URL + (movies[currentIndex].backdrop_path || movies[currentIndex].poster_path)}
+      alt={movies[currentIndex].title}
+      className="w-full h-full object-cover"
+      draggable={false}
+    />
+  )}
+</div>
+
 
       <div className="flex items-center justify-center gap-3 mt-2 relative">
 

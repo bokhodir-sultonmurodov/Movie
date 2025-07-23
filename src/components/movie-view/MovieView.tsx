@@ -4,6 +4,7 @@ import React, { type FC } from "react";
 import { FaStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { FiBookmark } from "react-icons/fi"; 
+import { useStore } from "@/zustand/useStore";
 
 interface SkeletonProps {
   count: number;
@@ -39,6 +40,7 @@ interface Props {
 
 const MovieView: FC<Props> = ({ data, loading, count }) => {
   const navigate = useNavigate();
+  const {toggleSave} = useStore()
   return (
     <div className="container mx-auto grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-6 px-4 py-6">
       {loading ? 
@@ -59,7 +61,7 @@ const MovieView: FC<Props> = ({ data, loading, count }) => {
                 
               />
             </div>
-            <FiBookmark className="text-[24px] absolute top-3 right-3 cursor-pointer text-gray-300 hover:text-gray-400ey- transition" />
+            <FiBookmark onClick={()=>toggleSave(movie)} className="text-[24px] absolute top-3 right-3 cursor-pointer text-gray-300 hover:text-gray-400ey- transition" />
             
             <div className="p-4">
               <p>{movie.release_date.slice(0,4)}</p>

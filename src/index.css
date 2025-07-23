@@ -11,3 +11,34 @@
 .custom-scroll::-webkit-scrollbar {
   height: 0px;
 }
+.dark-modal .ant-modal-content {
+  background-color: #000 !important;
+  color: #f0f0f0 !important;
+}
+
+.dark-modal .ant-modal-header {
+  background-color: #000 !important;
+  border-bottom-color: #333 !important;
+  color: #f0f0f0 !important;
+}
+
+.dark-modal .ant-modal-footer {
+  background-color: #000 !important;
+  border-top-color: #333 !important;
+}
+
+.dark-modal .ant-btn-primary {
+  background-color: #C61F1F !important;
+  border-color: #C61F1F !important;
+}
+
+.dark-modal .ant-btn-dangerous {
+  background-color: #C61F1F !important;
+  border-color: #C61F1F !important;
+}
+
+.dark-modal .ant-btn:hover,
+.dark-modal .ant-btn:focus {
+  background-color: #a51717 !important;
+  border-color: #a51717 !important;
+}
