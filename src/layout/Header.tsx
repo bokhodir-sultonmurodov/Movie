@@ -1,7 +1,17 @@
 import { NavLink } from "react-router-dom";
 import logo from "@/assets/main-logo.svg";
 import React, { useState } from "react";
-import { FiHome, FiFilm, FiLogIn, FiSun, FiMoon, FiMenu, FiBookmark, FiSearch } from "react-icons/fi";
+import {
+  FiHome,
+  FiFilm,
+  FiLogIn,
+  FiSun,
+  FiMoon,
+  FiMenu,
+  FiBookmark,
+  FiSearch,
+  FiLogOut,
+} from "react-icons/fi";
 import { Drawer, Modal, Button } from "antd";
 import { jwtDecode } from "jwt-decode";
 
@@ -18,12 +28,16 @@ const Header = () => {
   };
 
   const credential = localStorage.getItem("credential");
-  const decoded: any = credential ? jwtDecode(credential|| "") : null
+  const decoded: any = credential ? jwtDecode(credential || "") : null;
 
-  
+  const handleLogout = () => {
+    localStorage.removeItem("credential");
+    setIsProfileOpen(false);
+    window.location.reload(); 
+  };
 
   return (
-    <header className="p-4 container mx-auto bg-white dark:bg-[#000] backdrop-blur-sm">
+    <header className="p-4 container mx-auto  dark:bg-[#000] backdrop-blur-sm">
       <nav className="flex items-center justify-between">
         <NavLink to="/">
           <img src={logo} alt="Logo" className="w-24" loading="lazy" />
@@ -34,9 +48,10 @@ const Header = () => {
             <NavLink
               to="/"
               className={({ isActive }) =>
-                `flex flex-col items-center gap-1 ${isActive
-                  ? "text-[#C61F1F] dark:text-[#C61F1F]"
-                  : "text-gray-900 dark:text-[#A1A1A1]"
+                `flex flex-col items-center gap-1 ${
+                  isActive
+                    ? "text-[#C61F1F] dark:text-[#C61F1F]"
+                    : "text-gray-900 dark:text-[#A1A1A1]"
                 }`
               }
             >
@@ -47,9 +62,10 @@ const Header = () => {
             <NavLink
               to="/movies"
               className={({ isActive }) =>
-                `flex flex-col items-center gap-1 ${isActive
-                  ? "text-[#C61F1F] dark:text-[#C61F1F]"
-                  : "text-gray-900 dark:text-[#A1A1A1]"
+                `flex flex-col items-center gap-1 ${
+                  isActive
+                    ? "text-[#C61F1F] dark:text-[#C61F1F]"
+                    : "text-gray-900 dark:text-[#A1A1A1]"
                 }`
               }
             >
@@ -60,9 +76,10 @@ const Header = () => {
             <NavLink
               to="/search"
               className={({ isActive }) =>
-                `flex flex-col items-center gap-1 ${isActive
-                  ? "text-[#C61F1F] dark:text-[#C61F1F]"
-                  : "text-gray-900 dark:text-[#A1A1A1]"
+                `flex flex-col items-center gap-1 ${
+                  isActive
+                    ? "text-[#C61F1F] dark:text-[#C61F1F]"
+                    : "text-gray-900 dark:text-[#A1A1A1]"
                 }`
               }
             >
@@ -73,9 +90,10 @@ const Header = () => {
             <NavLink
               to="/saved"
               className={({ isActive }) =>
-                `flex flex-col items-center gap-1 ${isActive
-                  ? "text-[#C61F1F] dark:text-[#C61F1F]"
-                  : "text-gray-900 dark:text-[#A1A1A1]"
+                `flex flex-col items-center gap-1 ${
+                  isActive
+                    ? "text-[#C61F1F] dark:text-[#C61F1F]"
+                    : "text-gray-900 dark:text-[#A1A1A1]"
                 }`
               }
             >
@@ -87,17 +105,17 @@ const Header = () => {
               onClick={handleTheme}
               className="cursor-pointer p-2 rounded-lg flex items-center justify-center"
             >
-              {darkMode ? 
+              {darkMode ? (
                 <FiSun className="text-yellow-400 w-6 h-6" />
-               : 
+              ) : (
                 <FiMoon className="text-gray-900 w-6 h-6" />
-              }
+              )}
             </button>
           </li>
         </ul>
 
         <div className="flex items-center gap-4">
-          {decoded ? 
+          {decoded ? (
             <div
               className="flex items-center gap-2 cursor-pointer"
               onClick={() => setIsProfileOpen(true)}
@@ -108,11 +126,11 @@ const Header = () => {
                 className="w-10 h-10 rounded-full border-2 border-gray-300 dark:border-gray-600 object-cover"
               />
             </div>
-           : 
+          ) : (
             <NavLink to="/login">
               <FiLogIn className="text-2xl text-gray-900 dark:text-[#A1A1A1] cursor-pointer hover:text-[#C61F1F] dark:hover:text-[#C61F1F] transition-colors duration-300" />
             </NavLink>
-          }
+          )}
 
           <div className="md:hidden">
             <FiMenu
@@ -153,20 +171,23 @@ const Header = () => {
             <FiBookmark className="text-2xl text-gray-900 dark:text-white" />
           </NavLink>
           <button onClick={handleTheme}>
-            {darkMode ? 
+            {darkMode ? (
               <FiSun className="text-yellow-400 text-2xl" />
-             : 
+            ) : (
               <FiMoon className="text-gray-900 text-2xl" />
-            }
+            )}
           </button>
           <FiLogIn className="text-2xl text-gray-900 dark:text-white" />
         </Drawer>
+
         <Modal
           title="Profile"
           open={isProfileOpen}
           onCancel={() => setIsProfileOpen(false)}
           footer={[
-           
+            <Button key="logout" danger icon={<FiLogOut />} onClick={handleLogout}>
+              Logout
+            </Button>,
             <Button key="close" onClick={() => setIsProfileOpen(false)}>
               Close
             </Button>,
@@ -185,7 +206,6 @@ const Header = () => {
             </div>
           )}
         </Modal>
-
       </nav>
     </header>
   );
