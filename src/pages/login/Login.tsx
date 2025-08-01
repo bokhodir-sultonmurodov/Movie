@@ -8,7 +8,7 @@ const Login = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("credential");
-    window.location.reload(); // обновляем страницу, чтобы отрисовать заново
+    window.location.reload(); 
   };
 
   return (
